@@ -1,0 +1,22 @@
+body {
+    width: 60vw;
+    margin: auto;
+}
+h1 {
+    background-color: lightblue;
+    color: blue;
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+}
+
+p {
+    text-align: justify;
+}
+
+.paragrafo {
+    background-color: lightseagreen;
+    color:brown
+}

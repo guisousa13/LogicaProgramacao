@@ -1,0 +1,27 @@
+h1 {
+    font-size: 32px;
+    color: darkslategrey;
+    background-color: lightseagreen;
+    text-align: center;
+}
+
+h2 {
+    font-size: 24px;
+    color: darkslategray;
+    background-color: lightseagreen;
+    text-align: center; 
+}
+
+p    {
+    font-size: 16px;
+    color: lightseagreen;
+    background-color: black;
+    text-align: justify;
+}
+
+#umc {
+    font-size: 20px;
+    color:brown;
+    background-color: lightblue;
+    text-align: center;
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Margin</title>
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        body {
+            background-color: darkturquoise;
+        }
+        .pai {
+            width: 60vw;
+            background-color: whitesmoke    ;
+            margin: 10px auto;
+            height: 35vw;
+            padding: 10px;
+            box-shadow: 5px 5px 5px black;
+        }
+
+        .filhos {
+            font-size: 18px;
+            text-align: center;
+            border: 2px solid black;
+            padding: 50px;
+            margin: 10px;
+        }
+
+        #filho1 {
+            margin-top: 20px;
+        }
+
+        #filho2 {
+            margin-bottom: 30px;
+
+        }
+
+        #filho3 {
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="pai">
+        <h1>Trabalhando com Box Model</h1>
+        <div class="filhos" id="filho1">Primeira Caixa</div>
+
+        <div class="filhos"  id="filho2">Segunda Caixa</div>
+
+        <div class="filhos"  id="filho3">Terceira Caixa</div>
+
+    </div>
+
+</body>
+</html>
