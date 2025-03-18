@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulários</title>
+</head>
+<body>
+    <h1>Exemplo Formulário</h1>
+    <form action="">
+
+        <p>
+            <label for="nome">Nome Completo:</label>
+            <input type="text" id="nome" placeholder="Digite aqui seu nome" required>
+        </p>
+        <p>
+            <label for="data">Data:</label>
+            <input type="date" id="dat" required>
+        </p>
+        <p>
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="Digite aqui seu email" required>
+        </p>
+        <p>
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" placeholder="(00) 00000-0000">
+        </p>
+        <p>
+            <label for="number">Celular:</label>
+            <input type="number" id="number" required>
+        </p>
+        <p>
+            <label for="teste"></label>
+            <input type="text" id="teste" readonly>
+        </p>
+        <p>
+            <label for="mensagem"></label>
+            <textarea name="mensagem" id="mensagem" placeholder="Reclame aqui" cols="50" rows="3" maxlength="100"></textarea>
+        </p>
+        <p>
+            <label for="cidade">Cidade</label>
+            <select name="cidade" id="cidade">
+                <option value="sp">São Paulo</option>
+                <option value="pr">Paraná</option>
+                <option value="go">Goiás</option>
+                <option value="ba">Bahia</option>
+                <option value="am">Amazonas</option>
+            </select>
+        </p>
+        <p>
+            <label for="esportes">Esportes favoritos:</label><br>
+            <input type="checkbox" name="esportes" value="futebol"> Futebol<br>
+            <input type="checkbox" name="esportes" value="volei"> Vôlei<br>
+            <input type="checkbox" name="esportes" value="basquete"> Basquete<br>
+            <input type="checkbox" name="esportes" value="queimada"> Queimada<br>
+        </p>
+            <label for="curso">Curso: </label>
+            <input type="radio" name="curso" id="ADS"> ADS
+            <input type="radio" name="curso" id="EngSoft"> Engenharia de Software
+            <input type="radio" name="curso" id="CinComp"> Ciência da Computação
+        <p>
+            <button type="submit">Enviar</button>
+            <button type="reset">Limpar</button>
+        </p>
+    </form>
+</body>
+</html>
