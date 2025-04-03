@@ -1,30 +1,29 @@
-// Switch Case - Menu
-//if
-
-// Metodos de Pagamento
-// 1 - Pix = 10% de Desconto
-// 2 - Débito - 5% de Desconto
-// 3 - Crédito - Valor Total
-
 function calcularPagamento() {
 
-    let formaPagamento = "credito"
-    let valorTotal = 100
+    let formaPagamento = document.querySelector("#formaPagamento").value
+    let valorTotal = parseFloat(document.querySelector("#valorCompra").value)
+    let resultado = document.querySelector("#resultado")
     let valorFinal
-    switch (formaPagamento) {
-        case "pix":
-            valorFinal = valorTotal * 0.9
-            console.log(valorFinal);
-            break
-        case "debito":
-            valorFinal = valorTotal * 0.95
-            console.log(valorFinal);
-            break
-        case "credito":
-            console.log(valorTotal);
-            break
-        default:
-            console.log("Informe uma forma de pagamento válida");
-            break
+
+    if (valorTotal <= 0 || isNaN(valorTotal)) {
+        resultado.innerHTML = "Por favor, informe um valor válido."
+    }
+    else {
+        switch (formaPagamento) {
+            case "pix":
+                    valorFinal = valorTotal * 0.9
+                    resultado.innerHTML = `O valor final foi de R$ ${valorFinal.toFixed(2)}`;
+                break
+            case "debito":
+                valorFinal = valorTotal * 0.95
+                resultado.innerHTML = `O valor final foi de R$ ${valorFinal.toFixed(2)}`;
+                break
+            case "credito":
+                resultado.innerHTML = `O valor final foi de R$ ${valorTotal.toFixed(2)}`;
+                break
+            default:
+                resultado.innerHTML = "Informe uma forma de pagamento válida";
+                break
+        }
     }
 }
