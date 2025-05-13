@@ -7,12 +7,13 @@
     <link rel="stylesheet" href="../estilos/styleCadastrar.css">
 </head>
 <body>
+
     <header>
         <nav>
             <ul>
                 <li><a href="">Início</a></li>
                 <li><a href="">Cadastrar Usuário</a></li>
-                <li><a href="">Listar Usuários</a></li>
+                <li><a href="">Listas Usuários</a></li>
             </ul>
         </nav>
     </header>
@@ -24,25 +25,63 @@
             <label for="nome">Nome:</label>
             <input type="text" name="nome" id="nome" required>
 
-            <label for="sobrenome">Sobrenome</label>
+            <label for="sobrenome">Sobrenome:</label>
             <input type="text" name="sobrenome" id="sobrenome" required>
 
-            <label for="email">Email:</label>
+            <label for="email">E-mail:</label>
             <input type="email" name="email" id="email" required>
 
-            <label for="curso">Selecione o curso:</label>
+            <label for="curso">Selecione o curso: </label>
             <select name="curso" id="curso">
                 <option value="ads">Análise e Desenvolvimento de Sistemas</option>
                 <option value="engenharia_software">Engenharia de Software</option>
                 <option value="sistemas_informacao">Sistema da Informação</option>
-                <option value="ciencias_computacao">Ciência da Computação</option>
+                <option value="ciencias_computacao">Ciências da Computação</option>
             </select>
 
             <input type="submit" value="Cadastrar">
-            </form>
+        </form>
 
-            <?php
-                echo var_dump($_POST);
+        <?php
+
+            if($_SERVER["REQUEST_METHOD"] == "POST") {
+
+                mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+                try {
+                //capturar um arquivo externo
+                include("../conexao/conexao.php");
+                
+                //Variaveis do usuario
+                $nome = $_POST["nome"];
+                $sobrenome = $_POST["sobrenome"];
+                $email = $_POST["email"];
+                $curso = $_POST["curso"];
+                $prefixo = "1124";
+                $id = $prefixo . rand(100,999);
+                
+                //Consulta SQL
+                $sql = "INSERT INTO usuarios (id, nome, sobrenome, email, curso) VALUES (?, ?, ?, ?, ?)";
+
+                //Preparar a consulta
+                $stmt = $conn->prepare($sql);
+
+                //Vincular as variáveis do usuário com a consulta SQL
+                $stmt->bind_Param("sssss" ,$id,$nome, $sobrenome, $email, $curso);
+                
+                //Executar a consulta
+                $stmt->execute();
+
+                //Exibindo a mensagem de sucesso
+                echo "<div class = 'mensagem sucesso'> Usuário cadastrado com sucesso! </div>";
+
+                //Encerrar a consulta SQL e conexão com banco
+                $stmt->close();
+                $conn->close();
+                }  
+                catch(mysqli_sql_exception $e){
+                  echo "<div class = 'mensagem erro'> Erro ao cadastrar " . $e->getMessage(). "</div>";
+            }
+        }
             ?>
     </main>
 </body>
