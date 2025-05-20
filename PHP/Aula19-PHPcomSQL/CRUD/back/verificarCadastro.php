@@ -58,10 +58,42 @@
                         if ($resultado->num_rows > 0) {
                             //Armazenar as informações vindas do DB
                             $row = $resultado->fetch_assoc();
-                            echo var_dump($row); 
+                            echo "
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Nome</th>
+                                            <th>Sobrenome</th>
+                                            <th>Email</th>
+                                            <th>Excluir</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <td>{$row['ID']}</td>
+                                        <td>{$row['NOME']}</td>
+                                        <td>{$row['SOBRENOME']}</td>
+                                        <td>{$row['EMAIL']}</td>
+                                        <td>
+                                            <form action='excluirCadastro.php' method='post'>
+                                                <input type='hidden' name='id' value='{$row['ID']}'>
+                                                <input type='submit' id='btn-excluir' value='Excluir'>
+                                            </form>
+                                        </td>
+                                    </tbody>
+                                </table>
+        
+                                ";
                     }else {
-                          }
-            }
+                        echo "<div class='mensagem erro'> Email $email não encontrado </div>";
+                        }
+                    //Encerra consulta do SQL
+                    $stmt->close();
+                }else {
+                echo "<div class='mensagem erro'>Erro na consulta </div>";
+                }
+            //Encerra a conexão com o banco de dados
+            $conn->close();
         }
             ?>
 
