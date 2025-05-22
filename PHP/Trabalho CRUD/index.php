@@ -11,10 +11,10 @@
     <p>Escolha uma das opções abaixo:</p>
 
     <div class="menu">
-        <a href="back/cadastro.php">Cadastro</a>
-        <a href="">Verificar Cadastro</a>
+        <a href="back/cadastro.php">Registro</a>
+        <a href="">Verificar Registro</a>
         <a href="">Atualizar Cadastro</a>
-        <a href="">Verificar Nota</a>
+        <a href="back/verificarNota.php">Verificar Nota</a>
         <a href="">Atualizar Nota</a>
     </div>
 </body>
