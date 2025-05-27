@@ -12,20 +12,18 @@
             <ul>
                 <li><a href="../index.php">Início</a></li>
                 <li><a href="cadastro.php">Cadastrar Usuário</a></li>
-                <li><a href="">Listas Usuários</a></li>
+                <li><a href="verificarCadastro.php">Listas Usuários</a></li>
             </ul>
         </nav>
     </header>
-    
     <main>
         <section id="containerSection">
-            <form action="verificarCadastro.php" method="post">
+            <form action="atualizarCadastro.php" method="post">
                 <input type="email" placeholder="Informe seu e-mail" name="email" id="email">
                 <input type="submit" value="Buscar">
             </form>
         </section>
         <section>
-
             <?php
                 
                 //Verificar se o campo email está preenchido
@@ -59,6 +57,7 @@
                             //Armazenar as informações vindas do DB
                             $row = $resultado->fetch_assoc();
                             echo "
+                            <form action='processaCadastro.php' method='post' id='form-cadastro'>
                                 <table>
                                     <thead>
                                         <tr>
@@ -66,24 +65,22 @@
                                             <th>Nome</th>
                                             <th>Sobrenome</th>
                                             <th>Email</th>
-                                            <th>Excluir</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <td>{$row['ID']}</td>
-                                        <td>{$row['NOME']}</td>
-                                        <td>{$row['SOBRENOME']}</td>
-                                        <td>{$row['EMAIL']}</td>
                                         <td>
-                                            <form action='excluirCadastro.php' method='post'>
-                                                <input type='hidden' name='id' value='{$row['ID']}'>
-                                                <input type='submit' id='btn-excluir' value='Excluir'>
-                                            </form>
-                                        </td>
+                                                <input type='string' name='nome[{$row['ID']}]' required> 
+                                            </td>
+                                            <td>
+                                                <input type='string' name='sobrenome[{$row['ID']}]' required> 
+                                            </td>
+                                        <td>{$row['EMAIL']}</td>
                                     </tbody>
                                 </table>
-        
                                 ";
+                                echo "<input type='submit' value='Enviar'>
+                                </form>";
                     }else {
                         echo "<div class='mensagem erro'> Email $email não encontrado </div>";
                         }

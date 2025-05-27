@@ -12,10 +12,10 @@
 
     <div class="menu">
         <a href="back/cadastro.php">Cadastro</a>
-        <a href="">Verificar Cadastro</a>
-        <a href="">Atualizar Cadastro</a>
+        <a href="back/verificarCadastro.php">Verificar Cadastro</a>
+        <a href="back/atualizarCadastro.php">Atualizar Cadastro</a>
         <a href="back/verificarNota.php">Verificar Nota</a>
-        <a href="">Atualizar Nota</a>
+        <a href="back/atualizarNota.php">Atualizar Nota</a>
     </div>
 </body>
 </html>
